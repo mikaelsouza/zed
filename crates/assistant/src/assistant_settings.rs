@@ -6,20 +6,20 @@ use settings::Settings;
 
 #[derive(Clone, Debug, Serialize, Deserialize, JsonSchema, PartialEq)]
 pub enum OpenAiModel {
-    #[serde(rename = "gpt-3.5-turbo-0613")]
+    #[serde(rename = "gpt-3.5-turbo-0125")]
     ThreePointFiveTurbo,
     #[serde(rename = "gpt-4-0613")]
     Four,
-    #[serde(rename = "gpt-4-1106-preview")]
+    #[serde(rename = "gpt-4-0125-preview")]
     FourTurbo,
 }
 
 impl OpenAiModel {
     pub fn full_name(&self) -> &'static str {
         match self {
-            OpenAiModel::ThreePointFiveTurbo => "gpt-3.5-turbo-0613",
+            OpenAiModel::ThreePointFiveTurbo => "gpt-3.5-turbo-0125",
             OpenAiModel::Four => "gpt-4-0613",
-            OpenAiModel::FourTurbo => "gpt-4-1106-preview",
+            OpenAiModel::FourTurbo => "gpt-4-0125-preview",
         }
     }
 
@@ -78,7 +78,7 @@ pub struct AssistantSettingsContent {
     pub default_height: Option<f32>,
     /// The default OpenAI model to use when starting new conversations.
     ///
-    /// Default: gpt-4-1106-preview
+    /// Default: gpt-4-0125-preview
     pub default_open_ai_model: Option<OpenAiModel>,
 }
 
